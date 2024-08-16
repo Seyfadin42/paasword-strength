@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>password validator</h1>
+  <input type="password" id="pass">
+  <button id="sub">Submit</button>
+  <h3 id="bua"></h3>
+  <script>
+  document.getElementById('sub').addEventListener('click', function() {
+    let passw = document.getElementById('pass').value 
+
+   let upper = /[A-Z]/.test(passw)
+   let lower = /[a-z]/.test(passw)
+   let digit = /\d/.test(passw)
+   let length = passw.length>=8
+   let specialletter = /[!@#$%^&*(),.?":{}|<>]/.test(passw)
+
+   let valid = upper && lower && digit && length && specialletter
+   if (valid) {
+    document.getElementById('bua').innerHTML = 'Gobez, your password is valid'
+   } else {
+    alert('your password should met conditions \n at least one uppercase  \n at least one specialcharacter \n at least one lowercase  \n at least eight character  \n at least one digit{0-9} ' )
+     document.getElementById('bua').innerHTML = 'tish, your password is invalid'
+   }
+  })
+  </script>
+</body>
+</html>
